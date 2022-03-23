@@ -4,7 +4,18 @@ import java.util.List;
 import java.util.LinkedList;
 import auto_radnja.gume.AutoGuma;
 
+/**
+ * Klasa koja predstavlja implementaciju interfejsa Radnja.
+ * 
+ * @version 1.0
+ * @author Dragica Ljubisavljevic
+ *
+ */
+
 public class VulkanizerskaRadnja implements Radnja {
+	/**
+	 * Lista sa svim gumama u radnji. Inicijalozovana kao LinkedList
+	 */
 	private List<AutoGuma> gume = new LinkedList<AutoGuma>();
 
 	@Override
@@ -13,7 +24,7 @@ public class VulkanizerskaRadnja implements Radnja {
 			throw new NullPointerException("Guma ne sme biti null");
 		if (gume.contains(a))
 			throw new RuntimeException("Guma vec postoji");
-		gume.add(a);
+		((LinkedList<AutoGuma>) gume).addFirst(a);
 	}
 
 	@Override
